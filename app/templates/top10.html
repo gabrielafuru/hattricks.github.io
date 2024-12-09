@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Stats</title>
+    <link rel="stylesheet" href="static/styles.css">
+
+    <style>
+      .container img {
+          width: 1000px; /* Asegura que todas las imágenes tengan un ancho de 800px */
+          height: 400px; /* Mantiene la proporción */
+      }
+  </style>
+</head>
+<body>
+    <header>
+      <img src="static/logo-F1.png" alt="Logo" onclick="window.location.href='index.html'">
+        <h1>Record Drivers</h1>
+        <nav>
+          <button class="button" onclick="window.location.href='/'">Career Wins</button>
+          <button class="button" onclick="window.location.href='/top10'">Top-10 Hat-Tricks</button>
+          <button class="button" onclick="window.location.href='/all'">All Drivers</button>
+          <button class="button" onclick="window.location.href='/top3'">Top-3 Hat-Tricks</button>
+      </nav>
+      
+    </header>
+    <div class="container">
+      <section id="Top-10">
+        <h2>Top 10 Hat-Tricks</h2>
+        <section id="grafica1" class="hidden">
+            <h2><Hat-Tricks></Hat-Tricks></h2>
+            <div id="grafica3">
+              {{ graph_html|safe }}
+            </div>      
+          </section>
+      </section>
+    </div>
+    <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+    <script src="static/script.js"></script>
+</body>
+</html>

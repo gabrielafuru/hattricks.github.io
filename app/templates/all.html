@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Stats</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="static/logo-F1.png" alt="Logo" onclick="window.location.href='index.html'">
+    <h1>Record Drivers</h1>
+    <nav>
+      <button class="button" onclick="window.location.href='/'">Career Wins</button>
+      <button class="button" onclick="window.location.href='/top10'">Top-10 Hat-Tricks</button>
+      <button class="button" onclick="window.location.href='/all'">All Drivers</button>
+      <button class="button" onclick="window.location.href='/top3'">Top-3 Hat-Tricks</button>
+    </nav>
+  </header>
+  <div class="container">
+    <section id="All">
+      <h2>All Drivers Hat-Tricks</h2>
+      <div id="grafica2">
+        {{ graph_html|safe }}
+      </div>
+    </section>
+  </div>
+  <script src="static/script.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,19 @@
-// Función para desplazarse a las secciones
 function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Oculta todas las secciones
+    const sections = document.querySelectorAll('#Top-10, #All, #top-3, #table');
+    sections.forEach(section => {
+        section.classList.add('hidden'); // Oculta todas las secciones
+        const images = section.querySelectorAll('img');
+        images.forEach(img => img.classList.add('hidden')); // Oculta todas las imágenes
+    });
+
+    // Muestra solo la sección seleccionada
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.classList.remove('hidden');
+        const imagesToShow = sectionToShow.querySelectorAll('img');
+        imagesToShow.forEach(img => img.classList.remove('hidden')); // Muestra las imágenes de la sección
+        sectionToShow.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -13,21 +24,22 @@ function filterTable() {
     const rows = table.getElementsByTagName('tr');
     let found = false;
 
-    // Restablecer resaltado
-    for (let i = 1; i < rows.length; i++) {
-        rows[i].classList.remove('highlight');
-    }
-
-    // Buscar y resaltar coincidencias
     for (let i = 1; i < rows.length; i++) {
         const cells = rows[i].getElementsByTagName('td');
+        let rowContainsText = false;
         for (let j = 0; j < cells.length; j++) {
             if (cells[j].innerText.toLowerCase().includes(searchInput)) {
-                rows[i].classList.add('highlight');
+                rowContainsText = true;
+            }
+        }
+        if (rowContainsText) {
+            rows[i].classList.add('highlight');
+            if (!found) {
                 rows[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
                 found = true;
-                return;
             }
+        } else {
+            rows[i].classList.remove('highlight');
         }
     }
 
@@ -48,4 +60,12 @@ window.onscroll = function () {
 // Función para desplazar hasta la parte superior
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.getElementById('searchInput').addEventListener('input', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = searchInput.nextElementSibling;
+    searchButton.disabled = searchInput.value.trim() === '';
+});
+function reloadPage() {
+    location.reload(); // Recarga la página actual
 }

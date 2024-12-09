@@ -15,42 +15,15 @@
 </head>
 <body>
     <header>
-        <img src="logo-F1.png" alt="Logo">
+      <img src="logo-F1.png" alt="Logo" onclick="reloadPage()">
         <h1>Record Drivers</h1>
         <nav>
-          <button onclick="scrollToSection('Top-10')">Top 10</button>
-          <button onclick="scrollToSection('All')">All Drivers</button>
-          <button onclick="scrollToSection('top-3')">Top 3</button>
-          <button onclick="scrollToSection('table')">Ir a Tabla</button>
+        <button class="button" onclick="window.location.href='index.html'">Carreras Ganadas</button>
+        <button class="button" onclick="window.location.href='top10.html'">Top-10 Hat-Tricks</button>
+        <button class="button" onclick="window.location.href='all.html'">All Drivers</button>
+        <button class="button" onclick="window.location.href='top3.html'">Top-3 Hat-Tricks</button>
       </nav>
     </header>
-    <div class="container">
-      <section id="Top-10">
-      <h2>Top 10 Hat-Tricks</h2>
-        <section id="grafica1">
-            <h2><Hat-Tricks></Hat-Tricks></h2>
-            <img src="histograma.png" alt="Gráfica generada con Python">
-        </section>
-      </section>
-    </div>
-    <div class="container">
-      <section id="All">
-      <h2>All Drivers Hat-Tricks</h2>
-        <section id="grafica2">
-            <h2><Hat-Tricks></Hat-Tricks></h2>
-            <img src="Gráfica rojo y negro.png" alt="Gráfica generada con Python">
-        </section>
-      </section>
-    </div>
-    <div class="container">
-      <section id="top-3">
-      <h2>Top 3 Evolution Standings</h2>
-        <section id="grafica3">
-            <h2><Hat-Tricks></Hat-Tricks></h2>
-            <img src="grafica linea de evolucion.png" alt="Gráfica generada con Python">
-        </section>
-        </section>
-    </div>
     <div class="container">
       <section id="table">
       <div class="search-bar">
